@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Driver Registration</title>
+  <link rel="stylesheet" href="{% static 'css/driverreg.css' %}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2>Driver Registration</h2>
+
+    <form id="registrationForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Licence Number</label>
+          <input type="text" placeholder="Enter your Licence Number" required />
+        </div>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your full name" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="Enter your Mobile Number" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" placeholder="Create a password" required />
+          <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('password', this)"></i>
+        </div>
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Re-enter your password" required />
+          <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('confirmPassword', this)"></i>
+        </div>
+      </div>
+
+      <div class="captcha-row">
+        <div class="captcha-box">
+          <span id="captchaText"></span>
+          <button type="button" id="refreshBtn"><i class="fa-solid fa-rotate"></i></button>
+        </div>
+        <input type="text" id="captchaInput" placeholder="ENTER CAPTCHA ABOVE" required />
+      </div>
+
+      <label class="checkbox">
+        <input type="checkbox" required />
+        I hereby declare that the above information provided is true and correct
+      </label>
+
+      <button type="submit" class="btn">Register</button>
+      <p class="login-link">
+        Already have an account? <a href="{% url 'driver_login' %}">Login</a>
+      </p>
+    </form>
+  </div>
+
+  <script src="{% static 'js/driverreg.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.contact-section {
+
+    font-weight: bold;
+    background:  rgb(11, 200, 11);
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar-placeholder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.contact-container {
+    max-width: 700px;
+    width: 100%;
+    background: rgba(2, 73, 2, 0.267);
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 50px 30px;
+    box-shadow: 0 20px 40px rgba(14, 45, 199, 0.94);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-header h2 {
+    font-size: 36px;
+    color: #111;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-header p {
+    font-size: 1.1rem;
+    color: black;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 95%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: none;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #28a745;
+    box-shadow: 0 5px 15px rgba(40,167,69,0.2);
+    outline: none;
+}
+
+.contact-btn {
+    width: 100%;
+    background: aqua;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(40,167,69,0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 40px 20px;
+    }
+
+    .contact-header h2 {
+        font-size: 28px;
+    }
+
+    .contact-header p {
+        font-size: 1rem;
+    }
+
+    .contact-btn {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Features</title>
+  <link rel="stylesheet" href="{% static 'css/Feature.css' %}">
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar-placeholder"></div>
+
+  <section class="features-section">
+    <div class="features-header">
+      <h1>Garbage Collection Website Features</h1>
+      <p>Our website makes waste management simple, efficient, and user-friendly for residents and municipalities.</p>
+    </div>
+
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-card">
+        <img src="{% static 'img/schedule.png' %} " alt="Schedule Pickups" class="feature-image">
+        <h3>Schedule Pickups</h3>
+        <p>Residents can request garbage collection at their convenience.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Easy online scheduling</li>
+          <li><i class="fas fa-check-circle"></i> Automated confirmation</li>
+          <li><i class="fas fa-check-circle"></i> Track upcoming pickups</li>
+        </ul>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card">
+        <img src="{% static 'img/location.png' %} " alt="Bin Locations" class="feature-image">
+        <h3>Bin Locations</h3>
+        <p>Interactive map showing available garbage and recycling bins.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Find nearest bin</li>
+          <li><i class="fas fa-check-circle"></i> Coverage areas displayed</li>
+          <li><i class="fas fa-check-circle"></i> Easy navigation for users</li>
+        </ul>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card">
+        <img src="{% static 'img/notification.png' %}" alt="Notifications" class="feature-image">
+        <h3>Notifications & Alerts</h3>
+        <p>Keep residents informed about collection schedules and changes.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Pickup reminders</li>
+          <li><i class="fas fa-check-circle"></i> Service updates</li>
+          <li><i class="fas fa-check-circle"></i> Emergency alerts</li>
+        </ul>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card">
+        <img src="{% static 'img/rescale.png' %}" alt="Recycling Guides" class="feature-image">
+        <h3>Recycling Guides</h3>
+        <p>Educate users on proper waste segregation and recycling practices.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Tips for households</li>
+          <li><i class="fas fa-check-circle"></i> Sorting instructions</li>
+          <li><i class="fas fa-check-circle"></i> Eco-friendly suggestions</li>
+        </ul>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-card">
+        <img src="{% static 'img/contact.png' %}" alt="Contact & Feedback" class="feature-image">
+        <h3>Contact & Feedback</h3>
+        <p>Users can report missed pickups or provide feedback online.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Online contact form</li>
+          <li><i class="fas fa-check-circle"></i> Feedback collection</li>
+          <li><i class="fas fa-check-circle"></i> Quick response</li>
+        </ul>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-card">
+        <img src="{% static 'img/pro.png' %}" alt="Performance Dashboard" class="feature-image">
+        <h3>Performance Dashboard</h3>
+        <p>Admin view to monitor collection efficiency and service statistics.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Track collection metrics</li>
+          <li><i class="fas fa-check-circle"></i> Identify problem areas</li>
+          <li><i class="fas fa-check-circle"></i> Generate reports</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h2>Make Waste Management Simple</h2>
+      <p>Our website helps residents and municipalities coordinate garbage collection efficiently, reducing missed pickups and promoting cleaner communities.</p>
+      <a href="{% url 'contact' %}" class="cta-button">Contacts</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+<script src="{% static 'js/navbar.js' %}"></script>
+  <script>
+    $(function () {
+      $("#navbar-placeholder").load("../../templates/navbar.html", function() {
+        if (typeof initializeLogout === 'function') {
+          initializeLogout();
+        }
+      });
+      $("#footer-placeholder").load("../../templates/footer.html");
+    });
+  </script>
+  
+</body>
+</html>

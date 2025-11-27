@@ -1,0 +1,223 @@
+/* ============================
+   SMARTBIN – PROFILE PAGE STYLE
+============================ */
+
+/* General Page Setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #00ff66 0%, #00e05a 100%);
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+/* Smooth fixed navbar space compensation */
+#navbar-placeholder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.profile-container {
+  flex: 1;
+  margin: 120px auto 60px; /* space below fixed navbar */
+  background: #fff;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  padding: 40px;
+  text-align: center;
+  transition: 0.4s ease;
+}
+
+.profile-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.profile-icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00ff88, #00d9ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.profile-header h1 {
+  margin-top: 12px;
+  font-size: 26px;
+  color: #222;
+}
+
+.user-type-badge {
+  background: #111;
+  color: #00ff88;
+  border-radius: 25px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+/* Profile Details */
+.profile-details {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  transition: all 0.3s ease;
+}
+
+.detail-row:hover {
+  background: #e9fff0;
+  transform: translateX(3px);
+}
+
+.detail-icon {
+  font-size: 20px;
+  color: #00c46b;
+  width: 28px;
+  text-align: center;
+}
+
+.detail-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 16px;
+  color: #222;
+  font-weight: 600;
+}
+
+/* Action Button */
+.action-buttons {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #00ff88, #00d9ff);
+  color: #000;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-edit i {
+  margin-right: 6px;
+}
+
+.btn-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+}
+
+/* No Data Found Section */
+.no-data {
+  text-align: center;
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px 30px;
+  max-width: 500px;
+  margin: 120px auto 60px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.no-data i {
+  font-size: 60px;
+  color: #00c46b;
+  margin-bottom: 15px;
+}
+
+.no-data h2 {
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.no-data p {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.back-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: linear-gradient(135deg, #00ff88, #00d9ff);
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 255, 136, 0.4);
+}
+
+/* Footer container placeholder */
+#footer-placeholder {
+  margin-top: auto;
+}
+
+/* ============================
+   Responsive Design
+============================ */
+@media (max-width: 600px) {
+  .profile-container {
+    padding: 30px 20px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-icon {
+    margin-bottom: 5px;
+  }
+
+  .profile-header h1 {
+    font-size: 22px;
+  }
+}

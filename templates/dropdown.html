@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartBin - Role Selection</title>
+  <link rel="stylesheet" href="{% static 'css/dropdown.css' %}">
+  
+
+</head>
+<body>
+  <h1>SmartBin</h1>
+  <div class="overlay">
+    <div class="container">
+      <h2>Welcome to SmartBin</h2>
+    
+      <div class="role-buttons">
+        <!-- User Dropdown -->
+        <div class="dropdown">
+          <button onclick="toggleDropdown('userDropdown')" class="role-btn">User</button>
+          <div id="userDropdown" class="dropdown-content">
+            <a href="{% url 'user_login' %}">User Login</a>
+            <a href="{% url 'user_register' %}">User Registration</a>
+          </div>
+        </div>
+
+        <!-- Admin Dropdown -->
+        <div class="dropdown">
+          <button onclick="toggleDropdown('adminDropdown')" class="role-btn">Admin</button>
+          <div id="adminDropdown" class="dropdown-content">
+            <a href="{% url 'admin_login' %}">Admin Login</a>
+            <a href="{% url 'admin_reg' %}">Admin Registration</a>
+            
+          </div>
+        </div>
+
+        <!-- Driver Dropdown -->
+        <div class="dropdown">
+          <button onclick="toggleDropdown('driverDropdown')" class="role-btn">Driver</button>
+          <div id="driverDropdown" class="dropdown-content">
+             <a href="{% url 'driver_login' %}">Driver Login</a>
+              <a href="{% url 'driver_reg' %}">Driver Registration</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  <script src="{% static 'js/dropdown.js' %}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

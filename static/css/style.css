@@ -1,0 +1,292 @@
+/* home.css - Enhanced Professional Version */
+body {
+  background-color: rgb(11, 200, 11);
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('../img/bins.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+#navbar-placeholder {
+    position: fixed;      /* always on top */
+    top: 0;               /* distance from top */
+    left: 0;              /* align to left */
+    width: 100%;         
+    z-index: 1000;        
+    background: #fff;     
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.home {
+  padding: 100px 20px 80px 20px;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.home-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.home-text {
+  flex: 1;
+  min-width: 320px;
+  color: black;
+  animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.home h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slideInLeft 1s ease-out 0.2s both;
+}
+
+.home h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  line-height: 1.4;
+  color: #1a1a1a;
+  animation: slideInLeft 1s ease-out 0.4s both;
+}
+
+.home p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  color: #2d2d2d;
+  animation: slideInLeft 1s ease-out 0.6s both;
+}
+
+.btn-container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  animation: slideInLeft 1s ease-out 0.8s both;
+}
+
+.btn {
+  background: linear-gradient(135deg, #00ffff 0%, #00d4d4 100%);
+  padding: 14px 30px;
+  margin: 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.5);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+.btn a {
+  color: #000;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover a {
+  color: #fff;
+}
+
+.img {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideInRight 1s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.img img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: static;
+  margin: 0;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.img img:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Decorative Elements */
+.home::before {
+  content: '♻️';
+  position: absolute;
+  font-size: 150px;
+  opacity: 0.05;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-text,
+.img {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .home-content {
+    gap: 40px;
+  }
+
+  .home h1 {
+    font-size: 40px;
+  }
+
+  .home h2 {
+    font-size: 24px;
+  }
+
+  .img img {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 80px 15px 60px 15px;
+  }
+
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .home h1 {
+    font-size: 32px;
+  }
+
+  .home h2 {
+    font-size: 20px;
+  }
+
+  .home p {
+    font-size: 1.1rem;
+  }
+
+  .btn-container {
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 12px 25px;
+  }
+
+  .img img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .home h1 {
+    font-size: 28px;
+  }
+
+  .home h2 {
+    font-size: 18px;
+  }
+
+  .home p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  .btn a {
+    font-size: 14px;
+  }
+}
