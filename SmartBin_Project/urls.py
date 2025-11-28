@@ -48,6 +48,10 @@ urlpatterns = [
     path ('footer/', views.footer, name='footer'),
     path ('managedriver/', views.managedriver, name='managedriver'),
     path('complaint/', views.complaint_list, name='complaint_list'),
+    path('complaint/<int:complaint_id>/resolve/', views.mark_resolved, name='mark_resolved'),
+    path('complaint/<int:complaint_id>/unresolve/', views.mark_unresolved, name='mark_unresolved'),
+    path('complaint/<int:complaint_id>/delete/', views.delete_complaint, name='delete_complaint'),
+    path('complaint/<int:complaint_id>/edit/', views.edit_complaint, name='edit_complaint'),
     path('assignedtruck/', views.assignedtruck, name='assignedtruck'),
     path('update_status/', views.update_status, name='update_status'),
     

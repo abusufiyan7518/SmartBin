@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.template import RequestContext
+from django.contrib import messages
 from Smartbin_App.models import Complaint
 
 def user_login(request):
@@ -54,9 +55,59 @@ def update_status(request):
 
 
 def complaint_list(request):
-    complaints = Complaint.objects.filter(is_resolved=False).order_by('created_at')
+    complaints = Complaint.objects.filter(is_resolved=False).order_by('-created_at')
+    resolved_complaints = Complaint.objects.filter(is_resolved=True).order_by('-updated_at')
     context = {
         'complaints': complaints,
+        'resolved_complaints': resolved_complaints,
         }
     return render(request, 'complaintviews.html', context)
+
+def mark_resolved(request, complaint_id):
+    try:
+        complaint = Complaint.objects.get(id=complaint_id)
+        complaint.is_resolved = True
+        complaint.save()
+        messages.success(request, 'Complaint marked as resolved.')
+    except Complaint.DoesNotExist:
+        messages.error(request, 'Complaint not found.')
+    return redirect('complaint_list')
+
+def mark_unresolved(request, complaint_id):
+    try:
+        complaint = Complaint.objects.get(id=complaint_id)
+        complaint.is_resolved = False
+        complaint.save()
+        messages.success(request, 'Complaint marked as unresolved.')
+    except Complaint.DoesNotExist:
+        messages.error(request, 'Complaint not found.')
+    return redirect('complaint_list')
+
+def delete_complaint(request, complaint_id):
+    try:
+        complaint = Complaint.objects.get(id=complaint_id)
+        complaint.delete()
+        messages.success(request, 'Complaint deleted successfully.')
+    except Complaint.DoesNotExist:
+        messages.error(request, 'Complaint not found.')
+    return redirect('complaint_list')
+
+def edit_complaint(request, complaint_id):
+    from django.shortcuts import get_object_or_404
+    complaint = get_object_or_404(Complaint, id=complaint_id)
+    
+    if request.method == 'POST':
+        complaint.name = request.POST.get('name', complaint.name)
+        complaint.phone_no = request.POST.get('phone_no', complaint.phone_no)
+        complaint.email_id = request.POST.get('email_id', complaint.email_id)
+        complaint.address = request.POST.get('address', complaint.address)
+        complaint.complaint_type = request.POST.get('complaint_type', complaint.complaint_type)
+        complaint.description = request.POST.get('description', complaint.description)
+        if 'photo' in request.FILES:
+            complaint.photo = request.FILES['photo']
+        complaint.save()
+        messages.success(request, 'Complaint updated successfully.')
+        return redirect('complaint_list')
+    
+    return render(request, 'Report.html', {'complaint': complaint, 'edit_mode': True})
 
