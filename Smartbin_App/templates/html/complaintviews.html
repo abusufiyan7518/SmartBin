@@ -42,15 +42,11 @@
         <div class="row">
             <h4>Today Date</h4>
             <p class="text-muted">{% now "jS F Y" %}</p>
-            <form action="{% url 'addComplaint' %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <span style="display: flex;">
-
-                            <button type="submit" class="btn btn-primary" style="width: 200px;"><i class="fa fa-plus"></i> New Complaint</button>
-                        </span>
-                    </div>
-                </form>
+            <div class="form-group">
+                <span style="display: flex;">
+                    <a href="{% url 'report' %}" class="btn btn-primary" style="width: 200px; text-decoration: none; display: inline-block; text-align: center; padding: 10px;"><i class="fa fa-plus"></i> New Complaint</a>
+                </span>
+            </div>
             <div class="col-md-7 col-lg-7" style="height: 450px; overflow: scroll;">
                 <!-- List of all the complaint for the day -->
 
@@ -84,7 +80,7 @@
                   </div>
                 {% endif %}
             </div>
-            <div class="col-md-5 col-lg-5">
+            <div class="col-md-5 col-lg-5" style="height: 450px; overflow: scroll;" >
                 <h5>Resolved Complaints</h5>
                 <!-- List of all the complaint that have resolved -->
                 {% if resolved_complaints %}

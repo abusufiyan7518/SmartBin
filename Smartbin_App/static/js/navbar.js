@@ -67,7 +67,7 @@ function setupNavbar() {
       localStorage.removeItem("isLoggedIn");
       
       alert("You have logged out successfully!");
-      window.location.href = ""; // Redirect to dropdown page
+      window.location.href = "/"; // Redirect to dropdown page
     });
   }
 

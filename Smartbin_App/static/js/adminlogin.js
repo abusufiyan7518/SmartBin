@@ -48,7 +48,19 @@ document.getElementById("adminLoginForm").addEventListener("submit", function(ev
   }
 
   // SET ADMIN ROLE
-localStorage.setItem("userRole", "admin");
+  localStorage.setItem("userRole", "admin");
+  
+  // Set current user data for profile page
+  const userData = {
+    name: email.split('@')[0], // Use email prefix as name if not available
+    email: email,
+    type: 'admin',
+    idNumber: email.split('@')[0].toUpperCase(), // Generate ID from email
+    registeredAt: new Date().toISOString()
+  };
+  
+  localStorage.setItem("currentUser", JSON.stringify(userData));
+  localStorage.setItem("isLoggedIn", "true");
 
   // You can add real validation here (e.g., check from database)
   alert("Admin Login successful!");

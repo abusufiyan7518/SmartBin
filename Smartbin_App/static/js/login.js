@@ -25,11 +25,27 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
   //  SET USER ROLE - ADD THIS LINE
   localStorage.setItem("userRole", "user");
+  
+  // Set current user data for profile page
+  // Try to get user from localStorage users list, or create basic user data
+  let users = JSON.parse(localStorage.getItem('users') || '[]');
+  let userData = users.find(u => u.email === email && u.type === 'user');
+  
+  if (!userData) {
+    // If user not found in registration list, create basic data
+    userData = {
+      name: email.split('@')[0], // Use email prefix as name
+      email: email,
+      mobile: '', // Will be empty if not provided during login
+      type: 'user',
+      registeredAt: new Date().toISOString()
+    };
+  }
+  
+  localStorage.setItem("currentUser", JSON.stringify(userData));
+  localStorage.setItem("isLoggedIn", "true");
 
   // Simulate successful login
-    // Simulate successful login
   alert("Login successful!");
   window.location.href = "/home/";  // this hits views.home → index.html
-
-
 });
